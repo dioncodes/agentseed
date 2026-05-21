@@ -5,6 +5,7 @@ const props = defineProps<{
 
 const copied = ref(false)
 const { copyText, downloadMarkdown } = useMarkdownActions()
+const { trackEvent } = useVisitorsTracking()
 
 async function copyMarkdown() {
 	const success = await copyText(props.markdown)
@@ -12,10 +13,22 @@ async function copyMarkdown() {
 		return
 	}
 
+	trackEvent('agents_md_export', {
+		method: 'copy',
+		character_count: props.markdown.length
+	})
 	copied.value = true
 	window.setTimeout(() => {
 		copied.value = false
 	}, 1800)
+}
+
+function downloadAgentsMarkdown() {
+	downloadMarkdown(props.markdown)
+	trackEvent('agents_md_export', {
+		method: 'download',
+		character_count: props.markdown.length
+	})
 }
 </script>
 
@@ -37,7 +50,7 @@ async function copyMarkdown() {
 				<button
 					type="button"
 					class="focus-ring rounded-lg border border-white/20 px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
-					@click="downloadMarkdown(markdown)"
+					@click="downloadAgentsMarkdown"
 				>
 					Download AGENTS.md
 				</button>

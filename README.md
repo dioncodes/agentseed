@@ -13,6 +13,7 @@ The generator runs fully client-side. Users configure project details, stack, ar
 - Client-side copy and download actions.
 - Saved latest settings through browser `localStorage`.
 - SEO metadata and structured data for the public site.
+- Visitors analytics for pageviews and engagement events.
 
 ## Stack
 
@@ -65,4 +66,5 @@ npm run preview
 - `app/types/agents.ts` defines the generator configuration types.
 - `app/composables/useAgentsGenerator.ts` converts selected options into the generated markdown.
 - `app/composables/useMarkdownActions.ts` handles clipboard and download actions.
+- `app/composables/useVisitorsTracking.ts` wraps Visitors custom event tracking.
 - `app/assets/css/main.css` contains global Tailwind styles.

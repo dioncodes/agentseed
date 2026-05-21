@@ -24,6 +24,7 @@ The preferred architecture style is a simple feature-based MVP structure.
 - Keep selectable options and defaults in `app/data/options.ts`.
 - Keep markdown generation logic in `app/composables/useAgentsGenerator.ts`.
 - Keep browser clipboard/download helpers in `app/composables/useMarkdownActions.ts`.
+- Keep Visitors analytics custom event tracking in `app/composables/useVisitorsTracking.ts`.
 - Keep global Tailwind styles in `app/assets/css/main.css`.
 - Avoid moving deterministic generation into a server route or external API unless explicitly requested.
 - When adding generator options, update the type, option data, default config, form controls, and markdown output together.
@@ -80,6 +81,7 @@ Keep communication direct and focused on the change, validation, and any importa
 ## Security Rules
 - Never commit secrets, tokens, credentials, or private environment values.
 - Do not add analytics, tracking, remote logging, or external API calls without explicit approval.
+- Visitors analytics is explicitly approved for pageview tracking and engagement events. Keep its script in the global Nuxt head config and route custom events through `useVisitorsTracking`.
 - Use environment variables for credentials if credentials are ever introduced.
 - Validate user-controlled text before placing it in new execution contexts. Plain markdown generation is acceptable.
 - Avoid logging sensitive user-provided project details.

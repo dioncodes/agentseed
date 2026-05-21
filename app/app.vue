@@ -25,7 +25,9 @@ function mergeConfig(value: Partial<AgentsConfig>): AgentsConfig {
 
 const config = ref<AgentsConfig>(createDefaultConfig())
 const hydrated = ref(false)
+const trackedFirstCustomization = ref(false)
 const { generateAgentsMarkdown } = useAgentsGenerator()
+const { trackEvent } = useVisitorsTracking()
 const generatedMarkdown = computed(() => generateAgentsMarkdown(config.value))
 
 const features = [
@@ -66,6 +68,13 @@ watch(
 	(value) => {
 		if (!hydrated.value) {
 			return
+		}
+
+		if (!trackedFirstCustomization.value) {
+			trackEvent('first_customization', {
+				surface: 'generator_form'
+			})
+			trackedFirstCustomization.value = true
 		}
 
 		localStorage.setItem(storageKey, JSON.stringify(value))
