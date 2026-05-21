@@ -3,7 +3,7 @@ import { defaultAgentsConfig, siteUrl } from '~/data/options'
 import type { AgentsConfig } from '~/types/agents'
 
 const seoTitle = 'AgentSeed — AGENTS.md Generator for AI Coding Agents'
-const seoDescription = 'Generate a clean AGENTS.md file for Codex and AI coding agents. Define your stack, architecture, code style, testing rules, and project workflow in minutes.'
+const seoDescription = 'Generate a clean AGENTS.md file for AI coding agents like Codex, Claude, and Cursor. Define your stack, architecture, code style, testing rules, and project workflow in minutes.'
 const storageKey = 'agentseed-config'
 
 function createDefaultConfig(): AgentsConfig {

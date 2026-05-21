@@ -38,7 +38,7 @@ async function copySample() {
 					Generate an AGENTS.md for your next project
 				</h1>
 				<p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-					Define your stack, architecture, coding style, and agent instructions in minutes. Build a clear Codex project setup and AI development workflow without a login or API key.
+					Define your stack, architecture, coding style, and agent instructions in minutes. Build a clear project setup for AI coding agents like Codex, Claude, and Cursor without a login or API key.
 				</p>
 				<div class="mt-8 flex flex-col gap-3 sm:flex-row">
 					<a

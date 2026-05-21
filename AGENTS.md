@@ -1,7 +1,7 @@
 # AGENTS.md
 
 ## Project Overview
-AgentSeed is a Nuxt + Tailwind SPA for generating complete `AGENTS.md` project instruction files for Codex and other AI coding agents.
+AgentSeed is a Nuxt + Tailwind SPA for generating complete `AGENTS.md` project instruction files for AI coding agents such as Codex, Claude, Cursor, and similar tools.
 
 The app is intentionally deterministic for the MVP. It does not call an external AI API. Users configure project details, stack, architecture, coding standards, testing expectations, agent behavior rules, initial setup prompts, optional sections, and extra agent habits, then copy or download a generated `AGENTS.md`.
 

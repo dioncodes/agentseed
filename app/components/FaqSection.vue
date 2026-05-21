@@ -17,10 +17,10 @@
 				</details>
 				<details class="group p-6">
 					<summary class="focus-ring cursor-pointer list-none rounded-md text-base font-semibold text-slate-950">
-						Is this only for Codex?
+						Which agents does this work with?
 					</summary>
 					<p class="mt-3 text-sm leading-6 text-slate-600">
-						No. AgentSeed is useful for Codex project setup and for any AI coding agents that can read repository instructions.
+						AgentSeed is useful for AI coding agents that can read repository instructions, including Codex, Claude, Cursor, and similar tools.
 					</p>
 				</details>
 				<details class="group p-6">
