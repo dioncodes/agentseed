@@ -120,6 +120,10 @@ useHead({
 	],
 	script: [
 		{
+			src: 'https://cdn.visitors.now/v.js',
+			'data-token': '6fa62f4b-04b5-4c1b-9623-5be70073c2da'
+		},
+		{
 			type: 'application/ld+json',
 			innerHTML: JSON.stringify({
 				'@context': 'https://schema.org',
