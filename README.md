@@ -58,6 +58,10 @@ Preview a production build locally:
 npm run preview
 ```
 
+## License
+
+AgentSeed is licensed under the [MIT License](LICENSE).
+
 ## Project Structure
 
 - `app/app.vue` wires together SEO metadata, persisted generator state, and the single-page layout.
