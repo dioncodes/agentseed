@@ -1,39 +1,57 @@
 # AgentSeed
 
-AgentSeed is a Nuxt + Tailwind SPA for generating a complete `AGENTS.md` file for software projects that use AI coding agents such as Codex, Claude, Cursor, and similar tools.
+Production site: [agentseed.dev](https://agentseed.dev)
 
-The app runs fully client-side for the MVP. Users configure their project type, stack, architecture, coding standards, testing expectations, and agent behavior rules, then copy or download a generated `AGENTS.md`.
+AgentSeed is a focused Nuxt + Tailwind app for generating complete `AGENTS.md` instruction files for software projects that use AI coding agents such as Codex, Claude, Cursor, and similar tools.
+
+The generator runs fully client-side. Users configure project details, stack, architecture, coding standards, testing expectations, agent behavior rules, setup prompts, and optional sections, then copy or download a deterministic `AGENTS.md`.
+
+## Features
+
+- Live `AGENTS.md` preview that updates as settings change.
+- Deterministic markdown generation with no external AI API.
+- Client-side copy and download actions.
+- Saved latest settings through browser `localStorage`.
+- SEO metadata and structured data for the public site.
 
 ## Stack
 
-- Nuxt
+- Nuxt 4
 - Vue 3
 - TypeScript
 - Tailwind CSS via `@nuxtjs/tailwindcss`
 
-## Setup
+## Getting Started
+
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+Start the local development server:
 
 ```bash
 npm run dev
 ```
 
-## Production Build
+By default, Nuxt serves the app at `http://localhost:3000`.
 
-Build the application for production:
+## Commands
+
+Build for production:
 
 ```bash
 npm run build
 ```
 
-Locally preview production build:
+Generate a static build:
+
+```bash
+npm run generate
+```
+
+Preview a production build locally:
 
 ```bash
 npm run preview
@@ -41,8 +59,10 @@ npm run preview
 
 ## Project Structure
 
-- `app/components` contains the landing page, generator form, preview, FAQ, header, and footer components.
-- `app/data/options.ts` contains typed selectable options and sample defaults.
+- `app/app.vue` wires together SEO metadata, persisted generator state, and the single-page layout.
+- `app/components` contains the header, hero, feature cards, generator form, markdown preview, FAQ, and footer.
+- `app/data/options.ts` contains selectable options, defaults, and the production `siteUrl`.
 - `app/types/agents.ts` defines the generator configuration types.
-- `app/composables/useAgentsGenerator.ts` converts selected options into deterministic markdown.
+- `app/composables/useAgentsGenerator.ts` converts selected options into the generated markdown.
 - `app/composables/useMarkdownActions.ts` handles clipboard and download actions.
+- `app/assets/css/main.css` contains global Tailwind styles.
