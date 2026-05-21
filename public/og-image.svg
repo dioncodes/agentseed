@@ -11,6 +11,6 @@
 	<rect x="134" y="420" width="710" height="18" rx="9" fill="#64748b"/>
 	<rect x="134" y="460" width="536" height="18" rx="9" fill="#64748b"/>
 	<text x="164" y="167" fill="#ffffff" font-family="Arial, sans-serif" font-size="28" font-weight="700">AgentSeed</text>
-	<text x="640" y="176" fill="#0f172a" font-family="Arial, sans-serif" font-size="48" font-weight="700">AGENTS.md Generator</text>
-	<text x="642" y="235" fill="#475569" font-family="Arial, sans-serif" font-size="28">Project instructions for AI coding agents</text>
+	<text x="600" y="176" fill="#0f172a" font-family="Arial, sans-serif" font-size="44" font-weight="700" textLength="460" lengthAdjust="spacingAndGlyphs">AGENTS.md Generator</text>
+	<text x="602" y="235" fill="#475569" font-family="Arial, sans-serif" font-size="24" textLength="410" lengthAdjust="spacingAndGlyphs">Project instructions for AI coding agents</text>
 </svg>
