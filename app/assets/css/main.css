@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply bg-slate-50 text-slate-950 antialiased;
+	}
+
+	::selection {
+		@apply bg-emerald-200 text-slate-950;
+	}
+}
+
+@layer components {
+	.focus-ring {
+		@apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500;
+	}
+}
