@@ -4,7 +4,7 @@ Production site: [agentseed.dev](https://agentseed.dev)
 
 AgentSeed is a focused Nuxt + Tailwind app for generating complete `AGENTS.md` instruction files for software projects that use AI coding agents such as Codex, Claude, Cursor, and similar tools.
 
-The generator runs fully client-side. Users configure project details, stack, architecture, coding standards, testing expectations, agent behavior rules, setup prompts, and optional sections, then copy or download a deterministic `AGENTS.md`.
+The generator runs fully client-side. Users configure project details, stack, architecture, coding standards, indentation preference, testing expectations, agent behavior rules, setup prompts, and optional sections, then copy or download a deterministic `AGENTS.md`.
 
 ## Features
 

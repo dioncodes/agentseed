@@ -1,4 +1,4 @@
-import type { AgentsConfig, IncludeSectionKey, OutputTone, SelectOption } from '~/types/agents'
+import type { AgentsConfig, IncludeSectionKey, IndentationStyle, OutputTone, SelectOption } from '~/types/agents'
 
 export const siteUrl = 'https://agentseed.dev'
 
@@ -44,6 +44,19 @@ export const codeStyleOptions: SelectOption[] = [
 	{ label: 'Add comments only where helpful', value: 'Add comments only where helpful' },
 	{ label: 'Keep functions focused', value: 'Keep functions focused' },
 	{ label: 'Follow existing patterns before introducing new ones', value: 'Follow existing patterns before introducing new ones' }
+]
+
+export const indentationOptions: SelectOption<IndentationStyle>[] = [
+	{
+		label: 'Tabs',
+		value: 'Tabs',
+		description: 'Use tab characters for indentation.'
+	},
+	{
+		label: 'Spaces',
+		value: 'Spaces',
+		description: 'Use spaces for indentation.'
+	}
 ]
 
 export const testingOptions: SelectOption[] = [
@@ -117,6 +130,7 @@ export const defaultAgentsConfig: AgentsConfig = {
 		'Avoid premature abstraction',
 		'Follow existing patterns before introducing new ones'
 	],
+	indentationStyle: 'Tabs',
 	testingExpectations: [
 		'Add unit tests for business logic',
 		'Run tests before final response',

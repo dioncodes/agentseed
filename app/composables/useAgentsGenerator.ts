@@ -43,6 +43,11 @@ const toneIntro: Record<AgentsConfig['outputTone'], string> = {
 	Friendly: 'Keep communication clear, collaborative, and practical while staying precise about risks and decisions.'
 }
 
+const indentationInstruction: Record<AgentsConfig['indentationStyle'], string> = {
+	Tabs: 'Use tabs for indentation and preserve existing alignment in files that already use spaces.',
+	Spaces: 'Use spaces for indentation and preserve existing alignment in files that already use tabs.'
+}
+
 function normalizeList(values: string[], extra?: string) {
 	const customItems = extra
 		? extra
@@ -95,7 +100,7 @@ export function useAgentsGenerator() {
 			),
 			section(
 				'Coding Standards',
-				`${toneIntro[config.outputTone]}\n\n${bulletList(config.codeStyle)}`
+				`${toneIntro[config.outputTone]}\n\n${bulletList([...config.codeStyle, indentationInstruction[config.indentationStyle]])}`
 			),
 			section(
 				'Agent Workflow',

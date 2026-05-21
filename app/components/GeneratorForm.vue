@@ -4,6 +4,7 @@ import {
 	architectureOptions,
 	codeStyleOptions,
 	extraAgentHabitOptions,
+	indentationOptions,
 	includeSectionOptions,
 	initialSetupPromptOptions,
 	projectTypeOptions,
@@ -30,6 +31,7 @@ type TextKey =
 	| 'customStack'
 	| 'architectureStyle'
 	| 'customArchitecture'
+	| 'indentationStyle'
 	| 'outputTone'
 	| 'customInstructions'
 	| 'customInitialSetupPrompts'
@@ -235,6 +237,30 @@ function updateSection(key: IncludeSectionKey, enabled: boolean) {
 					<span>{{ option.label }}</span>
 				</label>
 			</div>
+
+			<fieldset>
+				<legend class="text-sm font-medium text-slate-800">Indentation</legend>
+				<div class="mt-3 grid gap-3 sm:grid-cols-2">
+					<label
+						v-for="option in indentationOptions"
+						:key="option.value"
+						class="focus-within:ring-2 focus-within:ring-emerald-500 focus-within:ring-offset-2 flex cursor-pointer items-start gap-3 rounded-lg border border-slate-200 bg-slate-50 p-3 text-sm text-slate-700"
+					>
+						<input
+							type="radio"
+							name="indentation-style"
+							class="mt-1 h-4 w-4 border-slate-300 text-emerald-600 focus:ring-emerald-500"
+							:value="option.value"
+							:checked="option.value === modelValue.indentationStyle"
+							@change="updateField('indentationStyle', inputValue($event))"
+						>
+						<span>
+							<span class="block font-medium text-slate-800">{{ option.label }}</span>
+							<span v-if="option.description" class="mt-1 block text-slate-600">{{ option.description }}</span>
+						</span>
+					</label>
+				</div>
+			</fieldset>
 		</section>
 
 		<section class="space-y-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" aria-labelledby="testing-heading">

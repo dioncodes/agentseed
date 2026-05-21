@@ -10,6 +10,8 @@ export type IncludeSectionKey =
 
 export type OutputTone = 'Concise' | 'Detailed' | 'Strict' | 'Friendly'
 
+export type IndentationStyle = 'Tabs' | 'Spaces'
+
 export interface SelectOption<TValue extends string = string> {
 	label: string
 	value: TValue
@@ -26,6 +28,7 @@ export interface AgentsConfig {
 	architectureStyle: string
 	customArchitecture: string
 	codeStyle: string[]
+	indentationStyle: IndentationStyle
 	testingExpectations: string[]
 	agentRules: string[]
 	initialSetupPrompts: string[]
