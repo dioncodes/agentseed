@@ -3,7 +3,7 @@
 ## Project Overview
 AgentSeed is a Nuxt + Tailwind SPA for generating complete `AGENTS.md` project instruction files for Codex and other AI coding agents.
 
-The app is intentionally deterministic for the MVP. It does not call an external AI API. Users configure project details, stack, architecture, coding standards, testing expectations, agent behavior rules, optional sections, and extra agent habits, then copy or download a generated `AGENTS.md`.
+The app is intentionally deterministic for the MVP. It does not call an external AI API. Users configure project details, stack, architecture, coding standards, testing expectations, agent behavior rules, initial setup prompts, optional sections, and extra agent habits, then copy or download a generated `AGENTS.md`.
 
 Use this file as the operating guide for AI coding agents working in this repository.
 
@@ -58,6 +58,8 @@ Keep communication direct and focused on the change, validation, and any importa
 - If a form option is selected by default, make sure its generated instruction is high quality and specific.
 - If an option can be customized through text input, merge custom values predictably with selected options.
 - Project name and description should be empty by default in the form; examples belong in placeholders.
+- Initial setup prompts must be written as one-time tasks for project initialization and must tell users to remove completed items from `AGENTS.md`.
+- Include setup-prompt options for polishing the project description, asking clarifying questions, creating `CLAUDE.md` with `@AGENTS.md`, confirming commands, documenting environment variables, identifying missing validation commands, and reviewing README gaps.
 - Keep copy and download behavior client-side.
 - Do not require external API keys or network calls for generation.
 - When changing the generated structure, confirm the preview, copy, and download paths still receive the full markdown string.

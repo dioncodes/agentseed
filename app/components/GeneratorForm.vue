@@ -5,6 +5,7 @@ import {
 	codeStyleOptions,
 	extraAgentHabitOptions,
 	includeSectionOptions,
+	initialSetupPromptOptions,
 	projectTypeOptions,
 	stackOptions,
 	testingOptions,
@@ -31,9 +32,10 @@ type TextKey =
 	| 'customArchitecture'
 	| 'outputTone'
 	| 'customInstructions'
+	| 'customInitialSetupPrompts'
 	| 'customExtraHabits'
 
-type ListKey = 'primaryStack' | 'codeStyle' | 'testingExpectations' | 'agentRules' | 'extraAgentHabits'
+type ListKey = 'primaryStack' | 'codeStyle' | 'testingExpectations' | 'agentRules' | 'initialSetupPrompts' | 'extraAgentHabits'
 
 function inputValue(event: Event) {
 	return (event.target as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement).value
@@ -270,6 +272,41 @@ function updateSection(key: IncludeSectionKey, enabled: boolean) {
 					>
 					<span>{{ option.label }}</span>
 				</label>
+			</div>
+		</section>
+
+		<section class="space-y-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" aria-labelledby="initial-setup-heading">
+			<div>
+				<h3 id="initial-setup-heading" class="text-base font-semibold text-slate-950">Initial setup prompts</h3>
+				<p class="mt-2 text-sm leading-6 text-slate-600">
+					Add one-time setup tasks agents should complete when initializing the project, then remove after completion.
+				</p>
+			</div>
+			<div class="grid gap-3">
+				<label
+					v-for="option in initialSetupPromptOptions"
+					:key="option.value"
+					class="focus-within:ring-2 focus-within:ring-emerald-500 focus-within:ring-offset-2 flex cursor-pointer items-start gap-3 rounded-lg border border-slate-200 bg-slate-50 p-3 text-sm text-slate-700"
+				>
+					<input
+						type="checkbox"
+						class="mt-1 h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
+						:checked="modelValue.initialSetupPrompts.includes(option.value)"
+						@change="updateList('initialSetupPrompts', option.value, checkboxValue($event))"
+					>
+					<span>{{ option.label }}</span>
+				</label>
+			</div>
+			<div>
+				<label for="custom-initial-setup-prompts" class="block text-sm font-medium text-slate-800">Custom initial setup prompts</label>
+				<input
+					id="custom-initial-setup-prompts"
+					:value="modelValue.customInitialSetupPrompts"
+					type="text"
+					class="focus-ring mt-2 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-950 shadow-sm"
+					placeholder="Comma-separated, for example Add issue templates, verify deploy target"
+					@input="updateField('customInitialSetupPrompts', inputValue($event))"
+				>
 			</div>
 		</section>
 

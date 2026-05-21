@@ -22,6 +22,12 @@ const sentenceMap: Record<string, string> = {
 	'Update README when setup or usage changes': 'Update README.md when setup, commands, environment variables, or usage changes.',
 	'Never commit secrets': 'Never commit secrets, tokens, credentials, or private environment values.',
 	'Never remove tests without explaining why': 'Never remove tests unless the reason is explicit and justified.',
+	'Polish the project description and ask clarifying questions': 'Polish the project description in this file. If the current description is vague, ask clarifying questions before rewriting it.',
+	'Create CLAUDE.md that references AGENTS.md': 'Create a `CLAUDE.md` file whose content is exactly `@AGENTS.md` so Claude-based agents reuse these instructions.',
+	'Confirm setup and build commands': 'Confirm the setup, development, test, and build commands from package/config files and update documentation if they differ from this file.',
+	'Document required environment variables': 'Identify required environment variables and document safe examples in README or `.env.example` without committing secrets.',
+	'Identify missing test or lint commands': 'Identify missing test, lint, typecheck, or build commands and ask before adding new tooling.',
+	'Review README for onboarding gaps': 'Review README.md for setup, usage, and project-structure gaps that would slow down a new contributor.',
 	'Suggest conventional commit message after making changes': 'After making changes, suggest a conventional commit message that accurately summarizes the work.',
 	'List changed files in the final response': 'List the main changed files in the final response when it helps the user review the work.',
 	'Call out risks and assumptions': 'Call out meaningful risks, assumptions, or areas that need user review.',
@@ -68,6 +74,7 @@ export function useAgentsGenerator() {
 		const architecture = config.customArchitecture.trim() || config.architectureStyle
 		const stack = normalizeList(config.primaryStack, config.customStack)
 		const customInstructions = config.customInstructions.trim()
+		const initialSetupPrompts = normalizeList(config.initialSetupPrompts, config.customInitialSetupPrompts)
 		const extraAgentHabits = normalizeList(config.extraAgentHabits, config.customExtraHabits)
 
 		const sections = [
@@ -112,6 +119,13 @@ export function useAgentsGenerator() {
 
 		if (extraAgentHabits.length) {
 			sections.push(section('Extra Agent Habits', bulletList(extraAgentHabits)))
+		}
+
+		if (initialSetupPrompts.length) {
+			sections.push(section(
+				'Initial Setup Prompts',
+				`These are one-time setup prompts for agents initializing the project. Complete relevant tasks early, then remove completed items from this section so the file stays current.\n\n${bulletList(initialSetupPrompts)}`
+			))
 		}
 
 		if (config.includeSections.security) {

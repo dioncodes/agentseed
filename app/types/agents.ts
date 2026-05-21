@@ -28,9 +28,11 @@ export interface AgentsConfig {
 	codeStyle: string[]
 	testingExpectations: string[]
 	agentRules: string[]
+	initialSetupPrompts: string[]
 	extraAgentHabits: string[]
 	outputTone: OutputTone
 	includeSections: Record<IncludeSectionKey, boolean>
 	customInstructions: string
+	customInitialSetupPrompts: string
 	customExtraHabits: string
 }

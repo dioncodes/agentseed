@@ -65,6 +65,15 @@ export const agentRuleOptions: SelectOption[] = [
 	{ label: 'Never remove tests without explaining why', value: 'Never remove tests without explaining why' }
 ]
 
+export const initialSetupPromptOptions: SelectOption[] = [
+	{ label: 'Polish the project description and ask clarifying questions', value: 'Polish the project description and ask clarifying questions' },
+	{ label: 'Create CLAUDE.md that references AGENTS.md', value: 'Create CLAUDE.md that references AGENTS.md' },
+	{ label: 'Confirm setup and build commands', value: 'Confirm setup and build commands' },
+	{ label: 'Document required environment variables', value: 'Document required environment variables' },
+	{ label: 'Identify missing test or lint commands', value: 'Identify missing test or lint commands' },
+	{ label: 'Review README for onboarding gaps', value: 'Review README for onboarding gaps' }
+]
+
 export const extraAgentHabitOptions: SelectOption[] = [
 	{ label: 'Suggest conventional commit message after making changes', value: 'Suggest conventional commit message after making changes' },
 	{ label: 'List changed files in the final response', value: 'List changed files in the final response' },
@@ -121,6 +130,11 @@ export const defaultAgentsConfig: AgentsConfig = {
 		'Update AGENTS.md when project conventions change',
 		'Never commit secrets'
 	],
+	initialSetupPrompts: [
+		'Polish the project description and ask clarifying questions',
+		'Create CLAUDE.md that references AGENTS.md',
+		'Confirm setup and build commands'
+	],
 	extraAgentHabits: [
 		'Suggest conventional commit message after making changes',
 		'Mention commands run for validation',
@@ -138,5 +152,6 @@ export const defaultAgentsConfig: AgentsConfig = {
 		ui: true
 	},
 	customInstructions: '',
+	customInitialSetupPrompts: '',
 	customExtraHabits: ''
 }
