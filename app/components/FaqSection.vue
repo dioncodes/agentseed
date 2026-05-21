@@ -47,6 +47,15 @@
 						No. The MVP uses deterministic client-side generation, so there is no external AI API key, account, or project upload required.
 					</p>
 				</details>
+				<details class="group p-6">
+					<summary class="focus-ring cursor-pointer list-none rounded-md text-base font-semibold text-slate-950">
+						Can I suggest an improvement?
+					</summary>
+					<p class="mt-3 text-sm leading-6 text-slate-600">
+						Yes. If you have an idea to improve the generator, send it to
+						<a class="focus-ring rounded-md font-medium text-emerald-700 hover:text-emerald-800" href="mailto:agentseed@dion.software">agentseed@dion.software</a>.
+					</p>
+				</details>
 			</div>
 		</div>
 	</section>
