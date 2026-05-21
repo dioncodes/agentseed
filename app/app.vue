@@ -4,6 +4,8 @@ import type { AgentsConfig } from '~/types/agents'
 
 const seoTitle = 'AgentSeed — AGENTS.md Generator for AI Coding Agents'
 const seoDescription = 'Generate a clean AGENTS.md file for AI coding agents like Codex, Claude, and Cursor. Define your stack, architecture, code style, testing rules, and project workflow in minutes.'
+const seoImage = `${siteUrl}/og-image.png`
+const seoImageAlt = 'AgentSeed AGENTS.md generator preview'
 const storageKey = 'agentseed-config'
 
 function createDefaultConfig(): AgentsConfig {
@@ -49,7 +51,35 @@ const features = [
 	}
 ]
 
-onMounted(() => {
+const faqItems = [
+	{
+		question: 'What is AGENTS.md?',
+		answer: 'AGENTS.md is a project instructions file for AI coding agents. It explains your stack, conventions, workflow rules, testing expectations, and approval boundaries.'
+	},
+	{
+		question: 'Which agents does this work with?',
+		answer: 'AgentSeed is useful for AI coding agents that can read repository instructions, including Codex, Claude, Cursor, and similar tools.'
+	},
+	{
+		question: 'Should I commit AGENTS.md to my repo?',
+		answer: 'Usually, yes. Committing it keeps project instructions visible, reviewable, and consistent for everyone using the codebase.'
+	},
+	{
+		question: 'Can I edit the generated file?',
+		answer: 'Yes. The generated markdown is meant to be copied, downloaded, committed, and refined as your project conventions evolve.'
+	},
+	{
+		question: 'Does it use an AI API?',
+		answer: 'No. The MVP uses deterministic client-side generation, so there is no external AI API key, account, or project upload required.'
+	},
+	{
+		question: 'Can I suggest an improvement?',
+		answer: 'Yes. If you have an idea to improve the generator, send it to',
+		contactEmail: 'agentseed@dion.software'
+	}
+]
+
+onMounted(async () => {
 	const savedConfig = localStorage.getItem(storageKey)
 
 	if (savedConfig) {
@@ -60,6 +90,7 @@ onMounted(() => {
 		}
 	}
 
+	await nextTick()
 	hydrated.value = true
 })
 
@@ -91,12 +122,18 @@ useSeoMeta({
 	description: seoDescription,
 	ogTitle: seoTitle,
 	ogDescription: seoDescription,
+	ogSiteName: 'AgentSeed',
 	ogType: 'website',
 	ogUrl: siteUrl,
-	ogImage: `${siteUrl}/og-image.svg`,
+	ogImage: seoImage,
+	ogImageAlt: seoImageAlt,
+	ogImageWidth: 1200,
+	ogImageHeight: 630,
+	ogImageType: 'image/png',
 	twitterTitle: seoTitle,
 	twitterDescription: seoDescription,
-	twitterImage: `${siteUrl}/og-image.svg`,
+	twitterImage: seoImage,
+	twitterImageAlt: seoImageAlt,
 	twitterCard: 'summary_large_image'
 })
 
@@ -136,17 +173,57 @@ useHead({
 			type: 'application/ld+json',
 			innerHTML: JSON.stringify({
 				'@context': 'https://schema.org',
-				'@type': 'SoftwareApplication',
-				name: 'AgentSeed',
-				applicationCategory: 'DeveloperApplication',
-				operatingSystem: 'Web',
-				url: siteUrl,
-				description: seoDescription,
-				offers: {
-					'@type': 'Offer',
-					price: '0',
-					priceCurrency: 'USD'
-				}
+				'@graph': [
+					{
+						'@type': 'WebSite',
+						'@id': `${siteUrl}/#website`,
+						name: 'AgentSeed',
+						url: siteUrl,
+						description: seoDescription,
+						inLanguage: 'en'
+					},
+					{
+						'@type': 'SoftwareApplication',
+						'@id': `${siteUrl}/#software`,
+						name: 'AgentSeed',
+						applicationCategory: 'DeveloperApplication',
+						applicationSubCategory: 'AI coding agent project instructions generator',
+						operatingSystem: 'Web',
+						url: siteUrl,
+						image: seoImage,
+						description: seoDescription,
+						featureList: features.map((feature) => `${feature.title}: ${feature.description}`),
+						isAccessibleForFree: true,
+						inLanguage: 'en',
+						creator: {
+							'@type': 'Organization',
+							name: 'Dion Software, LLC',
+							url: 'https://dion.software'
+						},
+						publisher: {
+							'@type': 'Organization',
+							name: 'Dion Software, LLC',
+							url: 'https://dion.software'
+						},
+						offers: {
+							'@type': 'Offer',
+							price: '0',
+							priceCurrency: 'USD'
+						}
+					},
+					{
+						'@type': 'FAQPage',
+						'@id': `${siteUrl}/#faq`,
+						mainEntity: faqItems.map((item) => ({
+							'@type': 'Question',
+							name: item.question,
+							acceptedAnswer: {
+								'@type': 'Answer',
+								text: item.contactEmail ? `${item.answer} ${item.contactEmail}.` : item.answer
+							}
+						}))
+					}
+				]
 			})
 		}
 	]
@@ -204,7 +281,7 @@ useHead({
 				</div>
 			</section>
 
-			<FaqSection />
+			<FaqSection :items="faqItems" />
 		</main>
 		<AppFooter />
 	</div>

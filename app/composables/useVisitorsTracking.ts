@@ -14,7 +14,11 @@ export function useVisitorsTracking() {
 			return
 		}
 
-		window.visitors?.track(event, properties)
+		try {
+			window.visitors?.track(event, properties)
+		} catch {
+			// Analytics should never block core generator interactions.
+		}
 	}
 
 	return { trackEvent }

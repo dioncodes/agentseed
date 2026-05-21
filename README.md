@@ -12,7 +12,7 @@ The generator runs fully client-side. Users configure project details, stack, ar
 - Deterministic markdown generation with no external AI API.
 - Client-side copy and download actions.
 - Saved latest settings through browser `localStorage`.
-- SEO metadata and structured data for the public site.
+- SEO metadata, structured data, sitemap, and social preview assets for the public site.
 - Visitors analytics for pageviews and engagement events.
 
 ## Stack
@@ -68,3 +68,4 @@ npm run preview
 - `app/composables/useMarkdownActions.ts` handles clipboard and download actions.
 - `app/composables/useVisitorsTracking.ts` wraps Visitors custom event tracking.
 - `app/assets/css/main.css` contains global Tailwind styles.
+- `public/robots.txt`, `public/sitemap.xml`, and `public/og-image.png` support search and social crawlers.

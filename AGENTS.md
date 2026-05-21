@@ -100,7 +100,8 @@ Keep communication direct and focused on the change, validation, and any importa
 - Use Nuxt `useSeoMeta` for core SEO metadata.
 - Preserve canonical URL support through the `siteUrl` constant.
 - Keep Open Graph and Twitter metadata current when the product positioning changes.
-- Keep JSON-LD structured data accurate for the app.
+- Keep JSON-LD structured data accurate for the app, including FAQ content when FAQ copy changes.
+- Keep `robots.txt`, `sitemap.xml`, and social preview image metadata aligned with the production `siteUrl`.
 - Avoid client-only rendering for SEO-critical landing copy when possible.
 
 ## Performance Rules
