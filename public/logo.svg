@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+	<title id="title">AgentSeed logo</title>
+	<defs>
+		<linearGradient id="bg" x1="22" x2="106" y1="18" y2="112" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#1e293b"/>
+			<stop offset="1" stop-color="#0f172a"/>
+		</linearGradient>
+		<linearGradient id="seed" x1="48" x2="78" y1="50" y2="86" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#a7f3d0"/>
+			<stop offset="1" stop-color="#10b981"/>
+		</linearGradient>
+	</defs>
+	<rect width="128" height="128" rx="30" fill="url(#bg)"/>
+	<path d="M32 94 64 28l32 66" fill="none" stroke="#f8fafc" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+	<path d="M49 74h30" fill="none" stroke="#34d399" stroke-width="13" stroke-linecap="round"/>
+	<ellipse cx="91" cy="37" rx="8" ry="12" fill="url(#seed)" transform="rotate(36 91 37)"/>
+</svg>

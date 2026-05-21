@@ -68,4 +68,4 @@ npm run preview
 - `app/composables/useMarkdownActions.ts` handles clipboard and download actions.
 - `app/composables/useVisitorsTracking.ts` wraps Visitors custom event tracking.
 - `app/assets/css/main.css` contains global Tailwind styles.
-- `public/robots.txt`, `public/sitemap.xml`, and `public/og-image.png` support search and social crawlers.
+- `public/logo.svg`, favicon files, `public/apple-touch-icon.png`, `public/producthunt-logo.png`, `public/robots.txt`, `public/sitemap.xml`, and `public/og-image.png` support branding, search, and social crawlers.

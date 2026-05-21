@@ -2,7 +2,7 @@
 	<header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur">
 		<div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
 			<a href="#" class="focus-ring flex items-center gap-3 rounded-md" aria-label="AgentSeed home">
-				<span class="grid h-9 w-9 place-items-center rounded-lg bg-slate-950 text-sm font-bold text-white">AS</span>
+				<img src="/logo.svg" alt="" class="h-9 w-9 rounded-lg" width="36" height="36">
 				<span class="text-base font-semibold tracking-tight text-slate-950">AgentSeed</span>
 			</a>
 
