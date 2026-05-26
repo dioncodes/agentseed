@@ -8,7 +8,11 @@
 					Provided by
 					<a class="font-medium text-slate-200 underline underline-offset-4 hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-slate-950" href="https://dion.software" target="_blank" rel="noopener noreferrer">
 						Dion Software, LLC
-					</a>.
+					</a>
+					<span class="mx-2 text-slate-600">/</span>
+					<a class="font-medium text-slate-400 underline underline-offset-4 hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-slate-950" href="https://buymeacoffee.com/dion.software" target="_blank" rel="noopener noreferrer" aria-label="Support AgentSeed on Buy Me a Coffee">
+						☕ Buy me a coffee
+					</a>
 				</p>
 			</div>
 		</div>
